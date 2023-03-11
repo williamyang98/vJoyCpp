@@ -1,6 +1,7 @@
 #pragma once
 #include <stdint.h>
 
+// For 2.2.1 of vjoy API
 namespace vjoy 
 {
 
@@ -158,7 +159,6 @@ struct Device_Info {
     int  nDiscHats;
     int  nContHats;
 };
-
 
 // FFB Effect Type
 enum class FFB_Effect_Type: uint32_t {
@@ -355,31 +355,6 @@ Error ffb_get_effect_constant   (const FFB_Data* Packet, FFB_Effect_Constant* Co
 Error ffb_get_device_control    (const FFB_Data* Packet, FFB_Control* Control);
 Error ffb_get_device_gain       (const FFB_Data* Packet, uint8_t* Gain);
 
-static 
-Device_Info device_get_info(Device_ID rID) {
-    Device_Info c;
-
-    c.AxisX       = device_get_axis_exists(rID, Axis::X);
-    c.AxisY       = device_get_axis_exists(rID, Axis::Y);
-    c.AxisZ       = device_get_axis_exists(rID, Axis::Z);
-    c.AxisXRot    = device_get_axis_exists(rID, Axis::RX);
-    c.AxisYRot    = device_get_axis_exists(rID, Axis::RY);
-    c.AxisZRot    = device_get_axis_exists(rID, Axis::RZ);
-    c.Slider      = device_get_axis_exists(rID, Axis::SLIDER);
-    c.Dial        = device_get_axis_exists(rID, Axis::DIAL);
-    c.Wheel       = device_get_axis_exists(rID, Axis::WHEEL);
-    c.Accelerator = device_get_axis_exists(rID, Axis::ACCELERATOR);
-    c.Brake       = device_get_axis_exists(rID, Axis::BRAKE);
-    c.Clutch      = device_get_axis_exists(rID, Axis::CLUTCH);
-    c.Steering    = device_get_axis_exists(rID, Axis::STEERING);
-    c.Rudder      = device_get_axis_exists(rID, Axis::RUDDER);
-    c.Aileron     = device_get_axis_exists(rID, Axis::AILERON);
-    c.Throttle    = device_get_axis_exists(rID, Axis::THROTTLE);
-    c.nButtons    = device_get_total_buttons(rID);
-    c.nDiscHats   = device_get_total_discrete_POVs(rID);
-    c.nContHats   = device_get_total_continuous_POVs(rID);
-
-    return c;
-}
+Device_Info device_get_info(Device_ID rID);
 
 };

@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(examples)
 
-add_subdirectory(${CMAKE_SOURCE_DIR}/vendor/vjoy)
+set(vjoy_DIR ${CMAKE_CURRENT_LIST_DIR}/../)
+find_package(vjoy CONFIG REQUIRED)
 
 macro(install_dlls target)
 add_custom_command(
@@ -14,7 +15,7 @@ add_custom_command(
 )
 endmacro()
 
-set(SRC_DIR ${CMAKE_SOURCE_DIR}/examples)
+set(SRC_DIR ${CMAKE_CURRENT_LIST_DIR})
 
 add_executable(main ${SRC_DIR}/main.cpp)
 target_link_libraries(main PRIVATE vjoy) 
