@@ -7,13 +7,13 @@ set(SRC_DIR ${CMAKE_CURRENT_LIST_DIR})
 add_library(vjoy_c SHARED IMPORTED GLOBAL)  
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
     set_target_properties(vjoy_c PROPERTIES 
-        IMPORTED_IMPLIB_RELEASE   ${SRC_DIR}/bin/x64/vJoyInterface.lib
-        IMPORTED_LOCATION_RELEASE ${SRC_DIR}/bin/x64/vJoyInterface.dll
+        IMPORTED_IMPLIB   ${SRC_DIR}/bin/x64/vJoyInterface.lib
+        IMPORTED_LOCATION ${SRC_DIR}/bin/x64/vJoyInterface.dll
     )
 elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
     set_target_properties(vjoy_c PROPERTIES 
-        IMPORTED_IMPLIB_RELEASE   ${SRC_DIR}/bin/x86/vJoyInterface.lib
-        IMPORTED_LOCATION_RELEASE ${SRC_DIR}/bin/x86/vJoyInterface.dll
+        IMPORTED_IMPLIB   ${SRC_DIR}/bin/x86/vJoyInterface.lib
+        IMPORTED_LOCATION ${SRC_DIR}/bin/x86/vJoyInterface.dll
     )
 else()
     message(FATAL_ERROR "vJoy only supports x86/x64")
