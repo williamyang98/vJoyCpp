@@ -1,5 +1,6 @@
 # Introduction
 ![windows-test](https://github.com/FiendChain/ViterbiDecoderCpp/actions/workflows/windows.yml/badge.svg)
+
 vJoy C++ wrapper using vJoy v2.2.1 from [here](https://github.com/njz3/vJoy).
 
 Functions are placed in a namespace and renamed for convenience.

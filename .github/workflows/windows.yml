@@ -24,7 +24,6 @@ jobs:
 
     - name: Upload files (Release) 
       uses: actions/upload-artifact@v3
-      working-directory: ./examples
       with:
         name: vjoy_test
         path: ${{github.workspace}}/build/Release
